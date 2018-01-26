@@ -1,7 +1,9 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.model;
 
+import de.tu_dresden.vlp.trafficinfrastructuremonitor.utils.WktParser;
 import org.osmdroid.util.GeoPoint;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +13,16 @@ public class TrafficStream {
     private String id;
     private List<GeoPoint> coordinates;
     private List<TrafficStreamElement> containments;
+
+    public TrafficStream(String id, List<GeoPoint> coordinates) {
+        this.id = id;
+        this.coordinates = coordinates;
+        this.containments = new ArrayList<>();
+    }
+
+    public TrafficStream(String id, String coordinatesWkt) {
+        this(id, WktParser.parseLineString(coordinatesWkt));
+    }
 
     public String getId() {
         return id;

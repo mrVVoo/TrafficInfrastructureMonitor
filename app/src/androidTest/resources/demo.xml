@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<trafficstreams>
+  <trafficstream id="K1_K2" wkt="LINESTRING (13.697416100000002 51.0164315, 13.699785400000001 51.015835200000005)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.014626</latitude>
+        <longitude>13.697195</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="SG4_K14_K15" wkt="LINESTRING (13.7573696 51.076085600000006, 13.7540676 51.075082)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.076588</latitude>
+        <longitude>13.755826</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K1,K2" wkt="LINESTRING (13.806827100000001 51.011297500000005, 13.8096376 51.0101406)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.01117</latitude>
+        <longitude>13.807477</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="SG6" wkt="LINESTRING (13.74561399999978 51.02765809999961, 13.746395999999779 51.02926459999962)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.028233</latitude>
+        <longitude>13.745849</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K1_K2" wkt="LINESTRING (13.770663800000001 51.073097600000004, 13.766924300000001 51.0728371)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.07184</latitude>
+        <longitude>13.770465</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K1" wkt="LINESTRING (13.6801217 51.0547588, 13.67985 51.0515587)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.052628</latitude>
+        <longitude>13.680655</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K1" wkt="LINESTRING (13.7947281 51.002410100000006, 13.7891195 51.0051896)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.001896</latitude>
+        <longitude>13.793967</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K3" wkt="LINESTRING (13.6821999 51.061838900000005, 13.6804608 51.061595000000004)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.061844</latitude>
+        <longitude>13.681608</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K15_17" wkt="LINESTRING (13.7600092 51.027240400000004, 13.7591695 51.0283802)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.02774</latitude>
+        <longitude>13.759568</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K9,K10,K11" wkt="LINESTRING (13.729204299999763 51.03246529999959, 13.730890399999764 51.03383569999959)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.032703</latitude>
+        <longitude>13.729839</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K13_K14" wkt="LINESTRING (13.747095100000001 51.062958200000004, 13.744662600000002 51.064277600000004)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.063297</latitude>
+        <longitude>13.746967</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="SG5_K10_K11" wkt="LINESTRING (13.7632154 51.0740004, 13.765793100000002 51.0710063)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.073296</latitude>
+        <longitude>13.765303</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="SG4" wkt="LINESTRING (13.776988522093465 51.037322958036576, 13.777392866598968 51.036050201720656)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.03698</latitude>
+        <longitude>13.777859</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K5_K6" wkt="LINESTRING (13.7771839 51.027942, 13.7815969 51.03214740000001)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.03067</latitude>
+        <longitude>13.7802305</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K5_6" wkt="LINESTRING (13.6781638 51.0422008, 13.6817943 51.042380400000006)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.0423</latitude>
+        <longitude>13.679653</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K1" wkt="LINESTRING (13.793247200000001 51.0068749, 13.7928314 51.00229890000001)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.005814</latitude>
+        <longitude>13.788319</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K5,K6,K7" wkt="LINESTRING (13.759056300000001 51.023950400000004, 13.761322900000001 51.022648700000005)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.023346</latitude>
+        <longitude>13.760029</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K5" wkt="LINESTRING (13.803649600000002 51.0262012, 13.797598200000001 51.0279947)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.027267</latitude>
+        <longitude>13.800853</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K1_K2" wkt="LINESTRING (13.796341000000002 51.135457900000006, 13.794523600000002 51.131641800000004)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.1339</latitude>
+        <longitude>13.795208</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K15_K16" wkt="LINESTRING (13.7467746 51.0488888, 13.743453700000002 51.047579500000005)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.04937</latitude>
+        <longitude>13.745189</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K10" wkt="LINESTRING (13.7871932 51.006343400000006, 13.7928314 51.00229890000001)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.00581</latitude>
+        <longitude>13.787787</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K7_K8" wkt="LINESTRING (13.6133547 51.038118000000004, 13.6146931 51.0387416)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.03832</latitude>
+        <longitude>13.614432</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K4_K5" wkt="LINESTRING (13.742662200000002 51.0846655, 13.737460700000002 51.0917631)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.087082</latitude>
+        <longitude>13.737765</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K5,K6,K7" wkt="LINESTRING (13.732360100000001 51.0296152, 13.730209 51.0323809)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.03001</latitude>
+        <longitude>13.731236</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K4_K5_K6" wkt="LINESTRING (13.833778400000002 51.057686700000005, 13.828951700000001 51.0585511)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.059204</latitude>
+        <longitude>13.832952</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K4_K5_K6" wkt="LINESTRING (13.77937 51.067015700000006, 13.7752216 51.067257100000006)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.06754</latitude>
+        <longitude>13.776748</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K7,K8,K9" wkt="LINESTRING (13.7768931 51.0115039, 13.782815200000002 51.010259500000004)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.01266</latitude>
+        <longitude>13.7776985</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K20" wkt="LINESTRING (13.703279100000001 51.050493900000006, 13.704514300000001 51.048770100000006)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.050472</latitude>
+        <longitude>13.703523</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K1_K2_K3" wkt="LINESTRING (13.790666900000002 51.1205007, 13.792311000000002 51.119798200000005)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.119263</latitude>
+        <longitude>13.790026</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+  <trafficstream id="K5" wkt="LINESTRING (13.725988000000001 51.057066000000006, 13.7225183 51.058493500000004)">
+    <stopLinePoint>
+      <pointCoordinates>
+        <latitude>51.05751</latitude>
+        <longitude>13.725173</longitude>
+      </pointCoordinates>
+    </stopLinePoint>
+  </trafficstream>
+</trafficstreams>

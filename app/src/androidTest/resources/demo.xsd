@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="trafficstreams">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="trafficstream"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="trafficstream">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="stopLinePoint"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required"/>
+      <xs:attribute name="wkt" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="stopLinePoint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="pointCoordinates"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pointCoordinates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="latitude"/>
+        <xs:element ref="longitude"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="latitude" type="xs:decimal"/>
+  <xs:element name="longitude" type="xs:decimal"/>
+</xs:schema>
