@@ -17,10 +17,8 @@ public class WktParser {
             return Collections.emptyList();
 
         List<GeoPoint> line = new ArrayList<>();
-        Pattern pattern = Pattern.compile("\\d+\\.\\d+\\s\\d+\\.\\d+");
-        Matcher matcher = pattern.matcher(lineString);
-        for (int i = 0; i < matcher.groupCount(); i++) {
-            String[] coordinates = matcher.group(i).split("\\s");
+        for (String stringCoordinate : lineString.substring(lineString.indexOf(" ") + 2, lineString.length() - 1).split(",")) {
+            String[] coordinates = stringCoordinate.trim().split("\\s");
             line.add(new GeoPoint(Double.valueOf(coordinates[1]), Double.valueOf(coordinates[0])));
         }
         return line;
