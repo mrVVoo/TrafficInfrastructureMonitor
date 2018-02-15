@@ -9,6 +9,9 @@ import de.tu_dresden.vlp.trafficinfrastructuremonitor.database.AppDatabase;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.Comment;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 
+/**
+ * {@link AsyncTask} which is used to create a summary of the comments.
+ */
 public class ExportGenerator extends AsyncTask<TrafficStream, Integer, String> {
 
     private final Context context;
@@ -54,6 +57,7 @@ public class ExportGenerator extends AsyncTask<TrafficStream, Integer, String> {
         if (s == null) {
             Toast.makeText(context,context.getString(R.string.no_comments_found),Toast.LENGTH_LONG).show();
         } else {
+            // TODO: ask user to choose between file and plain text or other export options.
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             intent.putExtra(Intent.EXTRA_TEXT, s);

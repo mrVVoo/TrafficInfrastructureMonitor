@@ -1,10 +1,10 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.backend;
 
 import android.util.Xml;
-import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.MyGeoPoint;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.StopLinePoint;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStreamElement;
+import de.tu_dresden.vlp.trafficinfrastructuremonitor.osmdroid.MyGeoPoint;
 import org.osmdroid.util.GeoPoint;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -17,6 +17,7 @@ import java.util.List;
 import static org.xmlpull.v1.XmlPullParser.TYPES;
 
 /**
+ * Custom XML Parser for {@link TrafficStream}s XML file.
  * Created by Markus Wutzler on 25.01.18.
  */
 public class TrafficStreamsXmlParser {

@@ -5,6 +5,9 @@ import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.Comment;
 
 import java.util.List;
 
+/**
+ * Dao Class required for Android {@link Room}
+ */
 @Dao
 public interface CommentDao {
     @Query("SELECT * FROM comment")

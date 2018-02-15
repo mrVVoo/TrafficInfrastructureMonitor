@@ -125,6 +125,9 @@ public class DataManager {
         invalidate();
     }
 
+    /**
+     * deletes all {@link Comment}s from the internal database.
+     */
     private void resetCommentsDatabase() {
         appDatabase.commentDao().delete(appDatabase.commentDao().all());
     }
@@ -150,6 +153,9 @@ public class DataManager {
         return listeners.remove(o);
     }
 
+    /**
+     * called when {@link TrafficStream}s are reloaded
+     */
     public interface DataManagerListener {
         void onDataChanged();
     }

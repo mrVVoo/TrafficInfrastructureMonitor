@@ -1,6 +1,6 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.utils;
 
-import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.MyGeoPoint;
+import de.tu_dresden.vlp.trafficinfrastructuremonitor.osmdroid.MyGeoPoint;
 import org.osmdroid.util.GeoPoint;
 
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * Parses a WKT String from the XML descriptions.
+ *
  * Created by Markus Wutzler on 26.01.18.
  */
 public class WktParser {

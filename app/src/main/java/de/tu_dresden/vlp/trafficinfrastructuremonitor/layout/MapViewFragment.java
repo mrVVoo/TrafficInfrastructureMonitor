@@ -9,34 +9,30 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.R;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.backend.DataManager;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.overlays.TrafficStreamOverlay;
 import org.osmdroid.api.IMapController;
-import org.osmdroid.config.Configuration;
-import org.osmdroid.tileprovider.MapTileProviderBasic;
 import org.osmdroid.tileprovider.cachemanager.CacheManager;
-import org.osmdroid.tileprovider.modules.SqliteArchiveTileWriter;
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.CopyrightOverlay;
-import org.osmdroid.views.overlay.Polyline;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.Context.LOCATION_SERVICE;
 
+/**
+ * The MapView Fragment.
+ */
 public class MapViewFragment extends Fragment implements LocationListener, DataManager.DataManagerListener {
 
     private MapView mapView;
 
     private CacheManager cacheManager;
-    private MapViewFragmentListener mapViewFragmentListener = null;
     private List<TrafficStreamOverlay> trafficStreamOverlays = new ArrayList<>();
     private List<TrafficStream> streams = new ArrayList<>();
     private DataManager dataManager;
@@ -84,16 +80,11 @@ public class MapViewFragment extends Fragment implements LocationListener, DataM
             mapController.setZoom(15);
             mapController.setCenter(new GeoPoint(currentLocation));
         }
-
-        if (getActivity() instanceof MapViewFragmentListener) {
-            mapViewFragmentListener = (MapViewFragmentListener) getActivity();
-        }
         if (getActivity() instanceof MainActivity) {
             dataManager = ((MainActivity) getActivity()).getDataManager();
             dataManager.addListener(this);
             update();
         }
-
 
         return view;
     }
@@ -101,7 +92,6 @@ public class MapViewFragment extends Fragment implements LocationListener, DataM
     @Override
     public void onDetach() {
         super.onDetach();
-        mapViewFragmentListener = null;
     }
 
     @Override
@@ -127,13 +117,9 @@ public class MapViewFragment extends Fragment implements LocationListener, DataM
 
     }
 
-    public void addTrafficStream(TrafficStream stream) {
-        streams.add(stream);
-        TrafficStreamOverlay overlay = new TrafficStreamOverlay(stream);
-        trafficStreamOverlays.add(overlay);
-        mapView.getOverlayManager().add(overlay);
-    }
-
+    /**
+     * Called by {@link DataManager} when {@link TrafficStream}s changed.
+     */
     @Override
     public void onDataChanged() {
         mapView.getOverlayManager().removeAll(trafficStreamOverlays);
@@ -156,10 +142,17 @@ public class MapViewFragment extends Fragment implements LocationListener, DataM
         });
     }
 
+    /**
+     * required for accessing MapView controls, view invalidation etc.
+     * @return
+     */
     public MapView getMapView() {
         return mapView;
     }
 
+    /**
+     * Currently implemented by {@link MainActivity} and called by {@link TrafficStreamOverlay} directly.
+     */
     interface MapViewFragmentListener {
         void onTrafficStreamSelected(TrafficStream trafficStream);
     }

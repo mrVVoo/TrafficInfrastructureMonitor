@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
+ * The application's main activity. The MapView and the detailed InfoWindow are managed in the respective fragments.
  * Created by Markus Wutzler on 25.01.18.
  */
 public class MainActivity extends AppCompatActivity implements MapViewFragment.MapViewFragmentListener {
@@ -48,17 +49,13 @@ public class MainActivity extends AppCompatActivity implements MapViewFragment.M
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Configuration.getInstance().load(this, prefs);
         Configuration.getInstance().setUserAgentValue(BuildConfig.APPLICATION_ID);
-        Configuration.getInstance().setDebugMode(true);
-        Configuration.getInstance().setDebugMapTileDownloader(true);
-        Configuration.getInstance().setDebugMapView(true);
-        Configuration.getInstance().setDebugTileProviders(true);
         Configuration.getInstance().save(this, prefs);
 
         mRequestFileIntent = new Intent(this, SelectDataFileActivity.class);
         setContentView(R.layout.activity_main);
 
         if (dataManager.getTrafficStreams().isEmpty()) {
-            new AlertDialog.Builder(this).setMessage("Es sind keine Daten vorhanden! Daten (XML-Datei) können über das Menü geladen werden!").setNeutralButton("Okay", new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(this).setMessage("Es sind keine Daten vorhanden! Daten (XML-Datei) können über das Menü geladen werden!").setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     dialogInterface.dismiss();
@@ -83,20 +80,27 @@ public class MainActivity extends AppCompatActivity implements MapViewFragment.M
 
         switch (id) {
             case R.id.load_data:
+                // start file chooser activity
                 startActivityForResult(mRequestFileIntent, mRequestFileCode);
                 return true;
             case R.id.export_data:
+                // start export
                 new ExportGenerator(this, dataManager.getDatabase()).execute(dataManager.getTrafficStreams().toArray(new TrafficStream[dataManager.getTrafficStreams().size()]));
                 return true;
             case R.id.refresh_map:
-                refreshMap();
+                // batch download tiles
+                downloadMap();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void refreshMap() {
+    /**
+     * This method analyzes which {@link MapTile}s have to be downloaded. Only tiles around {@link TrafficStream}s are downloaded.
+     * Attention: Batch downloading may result in being blocked by OSM!
+     */
+    private void downloadMap() {
         CacheManager cacheManager = getMapViewFragment().getCacheManager();
         ArrayList<MapTile> tiles = new ArrayList<>();
         for (TrafficStream stream : dataManager.getTrafficStreams()) {
@@ -110,6 +114,12 @@ public class MainActivity extends AppCompatActivity implements MapViewFragment.M
         cacheManager.downloadAreaAsync(this, tiles, 14, 19);
     }
 
+    /**
+     * Handles the file selection caused by the file chooser.
+     * @param requestCode
+     * @param resultCode
+     * @param returnIntent
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent returnIntent) {
@@ -129,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements MapViewFragment.M
                                     new AlertDialog.Builder(MainActivity.this).setMessage(R.string.dialog_download_map).setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialogInterface, int i) {
-                                            MainActivity.this.refreshMap();
+                                            MainActivity.this.downloadMap();
                                         }
                                     }).setNeutralButton(R.string.no, new DialogInterface.OnClickListener() {
                                         @Override

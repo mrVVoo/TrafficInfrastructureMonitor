@@ -1,4 +1,4 @@
-package de.tu_dresden.vlp.trafficinfrastructuremonitor.model;
+package de.tu_dresden.vlp.trafficinfrastructuremonitor.osmdroid;
 
 import android.location.Location;
 import org.osmdroid.util.GeoPoint;
