@@ -1,4 +1,4 @@
-package de.tu_dresden.vlp.trafficinfrastructuremonitor.xmlparser;
+package de.tu_dresden.vlp.trafficinfrastructuremonitor.backend;
 
 import android.util.Xml;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.StopLinePoint;

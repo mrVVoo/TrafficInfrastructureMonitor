@@ -35,4 +35,13 @@ public class TrafficStream {
     public List<TrafficStreamElement> getContainments() {
         return containments;
     }
+
+    @Override
+    public String toString() {
+        return "TrafficStream{" +
+                "id='" + id + '\'' +
+                ", coordinates=" + coordinates +
+                ", containments=" + containments +
+                '}';
+    }
 }

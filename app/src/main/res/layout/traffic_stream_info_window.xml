@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent" android:orientation="vertical">
+
+    <TextView
+            android:text="@string/traffic_stream_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_weight="1"/>
+    <TextView
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/tsiw_traffic_stream_id_label" android:layout_weight="1"/>
+    <TextView
+            android:text="@string/comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_weight="1"/>
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:ems="5"
+            android:id="@+id/tsiw_comments" android:layout_weight="1"/>
+    <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:columnCount="2" android:rowCount="1">
+        <Button android:text="@string/tsiw_btn_cancel" android:id="@+id/tsiw_cancel"/>
+        <Button android:text="@string/tsiw_btn_save" android:id="@+id/tsiw_save_btn"/>
+    </GridLayout>
+
+</LinearLayout>

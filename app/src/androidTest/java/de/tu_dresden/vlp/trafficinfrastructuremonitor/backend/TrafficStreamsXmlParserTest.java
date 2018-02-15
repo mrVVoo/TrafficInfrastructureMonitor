@@ -1,4 +1,4 @@
-package de.tu_dresden.vlp.trafficinfrastructuremonitor.xmlparser;
+package de.tu_dresden.vlp.trafficinfrastructuremonitor.backend;
 
 import android.support.test.runner.AndroidJUnit4;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.StopLinePoint;
@@ -25,6 +25,8 @@ public class TrafficStreamsXmlParserTest {
         Assert.assertFalse("Traffic Stream List is empty",trafficStreams.isEmpty());
         Assert.assertEquals(30,trafficStreams.size());
         for (TrafficStream trafficStream : trafficStreams) {
+            Assert.assertNotNull(trafficStream.getCoordinates());
+            Assert.assertTrue("At least two coordinates!",trafficStream.getCoordinates().size() > 1);
             Assert.assertNotNull(trafficStream.getId());
             Assert.assertNotNull(trafficStream.getContainments());
             for (TrafficStreamElement element : trafficStream.getContainments()) {

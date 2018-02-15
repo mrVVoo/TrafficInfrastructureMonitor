@@ -1,10 +1,18 @@
 <resources>
     <string name="app_name">Traffic Infrastructure Monitor</string>
     <string name="title_activity_main">Traffic Infrastructure Monitor</string>
-    <string name="menu_refresh_map">Karte aktualisieren</string>
+    <string name="menu_refresh_map">Karte offline verfügbar machen</string>
     <string name="menu_load_data">Daten aktualisieren</string>
     <string name="select_file">Datei auswählen</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="traffic_stream_id">Traffic Stream ID:</string>
+    <string name="comments">Comments</string>
+    <string name="tsiw_btn_cancel">Cancel</string>
+    <string name="tsiw_btn_save">Save!</string>
+    <string name="export_data">Anmerkungen exportieren</string>
+    <string name="export_comments">Kommentare exportieren</string>
+    <string name="no_comments_found">Keine Kommentare gefunden!</string>
+    <string name="no">Nein</string>
+    <string name="yes">Ja</string>
+    <string name="dialog_download_map">Kartenmaterial herunterladen?</string>
 </resources>
