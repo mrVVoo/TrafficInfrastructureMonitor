@@ -3,8 +3,6 @@ package de.tu_dresden.vlp.trafficinfrastructuremonitor.backend;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v4.app.ShareCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.R;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.database.AppDatabase;
@@ -27,7 +25,8 @@ public class ExportGenerator extends AsyncTask<TrafficStream, Integer, String> {
         int count = 0, items=0, total = trafficStreams.length;
         for (TrafficStream stream : trafficStreams) {
             count++;
-            Comment comment = database.commentDao().get(stream.getId());
+            // use hashCode as Id due to non-unique traffic stream ids
+            Comment comment = database.commentDao().get(String.valueOf(stream.hashCode()));
             if (comment == null || comment.getText() == null || comment.getText().isEmpty()) continue;
             items++;
             for (int i = 0; i < 25; i++) {
@@ -37,7 +36,7 @@ public class ExportGenerator extends AsyncTask<TrafficStream, Integer, String> {
             for (int i = 0; i < 25; i++) {
                 sb.append("-");
             }
-            sb.append("\n").append("Comment:").append("\n").append(comment.getText()).append("\n");
+            sb.append("\n").append("Kommentar:").append("\n").append(comment.getText()).append("\n");
             sb.append("\n").append(stream).append("\n");
             for (int i = 0; i < 25; i++) {
                 sb.append("=");

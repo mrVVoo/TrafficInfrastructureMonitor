@@ -1,5 +1,6 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.model;
 
+import com.google.common.base.Objects;
 import org.osmdroid.util.GeoPoint;
 
 import java.util.ArrayList;
@@ -17,5 +18,18 @@ public class StopLinePoint extends TrafficStreamElement {
 
     public List<GeoPoint> getPointCoordinates() {
         return pointCoordinates;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getPointCoordinates());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof StopLinePoint)) return false;
+        StopLinePoint that = (StopLinePoint) o;
+        return Objects.equal(getPointCoordinates(), that.getPointCoordinates());
     }
 }

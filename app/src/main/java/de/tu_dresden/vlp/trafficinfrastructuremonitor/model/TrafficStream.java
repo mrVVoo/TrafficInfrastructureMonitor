@@ -1,5 +1,6 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.model;
 
+import com.google.common.base.Objects;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.utils.WktParser;
 import org.osmdroid.util.GeoPoint;
 
@@ -43,5 +44,20 @@ public class TrafficStream {
                 ", coordinates=" + coordinates +
                 ", containments=" + containments +
                 '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(getId(), getCoordinates(), getContainments());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TrafficStream)) return false;
+        TrafficStream that = (TrafficStream) o;
+        return Objects.equal(getId(), that.getId()) &&
+                Objects.equal(getCoordinates(), that.getCoordinates()) &&
+                Objects.equal(getContainments(), that.getContainments());
     }
 }

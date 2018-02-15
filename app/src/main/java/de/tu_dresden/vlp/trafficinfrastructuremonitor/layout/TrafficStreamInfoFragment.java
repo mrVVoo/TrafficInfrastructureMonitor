@@ -1,17 +1,14 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.layout;
 
 import android.app.Fragment;
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.EditText;
 import android.widget.TextView;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Objects;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.R;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.backend.DataManager;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.Comment;
@@ -69,7 +66,10 @@ public class TrafficStreamInfoFragment extends Fragment {
                             public void run() {
                                 if (currentComment != null) {
                                     commentField.setText(currentComment.getText());
+                                } else {
+                                    commentField.setText(null);
                                 }
+                                fragmentRootView.requestFocus();
                             }
                         });
                     }
@@ -100,6 +100,9 @@ public class TrafficStreamInfoFragment extends Fragment {
         fragmentRootView.findViewById(R.id.tsiw_save_btn).setOnClickListener(saveButtonClickListener);
         cancelButtonClickListener = new CancelButtonClickListener();
         fragmentRootView.findViewById(R.id.tsiw_cancel_btn).setOnClickListener(cancelButtonClickListener);
+
+        updateUI();
+
         return fragmentRootView;
     }
 
@@ -133,7 +136,8 @@ public class TrafficStreamInfoFragment extends Fragment {
             String viewText = MoreObjects.firstNonNull(commentField.getText().toString(), "");
             if (dbText.equals(viewText)) return;
 
-            currentComment.setId(myTrafficStream.getId());
+            // use hashCode as Id due to non-unique traffic stream ids
+            currentComment.setId(String.valueOf(myTrafficStream.hashCode()));
             currentComment.setText(commentField.getText().toString());
             new Thread(new Runnable() {
                 @Override
@@ -141,6 +145,7 @@ public class TrafficStreamInfoFragment extends Fragment {
                     dataManager.createOrUpdateCommentForTrafficStream(myTrafficStream, currentComment);
                 }
             }).start();
+            fragmentRootView.requestFocus();
         }
     }
 
@@ -148,6 +153,7 @@ public class TrafficStreamInfoFragment extends Fragment {
         @Override
         public void onClick(View view) {
             commentField.setText(currentComment == null ? "" : currentComment.getText());
+            fragmentRootView.requestFocus();
         }
     }
 }

@@ -3,7 +3,6 @@ package de.tu_dresden.vlp.trafficinfrastructuremonitor.backend;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.database.AppDatabase;
-import de.tu_dresden.vlp.trafficinfrastructuremonitor.layout.MapViewFragment;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.Comment;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 import org.xmlpull.v1.XmlPullParserException;
@@ -88,11 +87,11 @@ public class DataManager {
     }
 
     public Comment getCommentForTrafficStream(TrafficStream trafficStream) {
-        return getDatabase().commentDao().get(trafficStream.getId());
+        return getDatabase().commentDao().get(String.valueOf(trafficStream.hashCode()));
     }
 
     public void createOrUpdateCommentForTrafficStream(TrafficStream trafficStream, Comment comment) {
-        comment.setId(trafficStream.getId());
+        comment.setId(String.valueOf(trafficStream.hashCode()));
         getDatabase().commentDao().insert(comment);
     }
 

@@ -1,6 +1,7 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.backend;
 
 import android.util.Xml;
+import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.MyGeoPoint;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.StopLinePoint;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStreamElement;
@@ -146,7 +147,7 @@ public class TrafficStreamsXmlParser {
         }
 
         if (latitude != null && longitude != null) {
-            return new GeoPoint(Double.valueOf(latitude), Double.valueOf(longitude));
+            return new MyGeoPoint(Double.valueOf(latitude), Double.valueOf(longitude));
         }
         return null;
     }
