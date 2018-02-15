@@ -3,7 +3,6 @@ package de.tu_dresden.vlp.trafficinfrastructuremonitor.layout;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
@@ -19,8 +18,6 @@ import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 import org.osmdroid.config.Configuration;
 import org.osmdroid.tileprovider.MapTile;
 import org.osmdroid.tileprovider.cachemanager.CacheManager;
-import org.osmdroid.util.BoundingBox;
-import org.osmdroid.util.GeoPoint;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,7 +27,7 @@ import java.util.Iterator;
 /**
  * Created by Markus Wutzler on 25.01.18.
  */
-public class MainActivity extends AppCompatActivity implements TrafficStreamInfoFragment.OnFragmentInteractionListener, MapViewFragment.MapViewFragmentListener {
+public class MainActivity extends AppCompatActivity implements MapViewFragment.MapViewFragmentListener {
 
     private Intent mRequestFileIntent;
     private static final int mRequestFileCode = 777;
@@ -170,11 +167,6 @@ public class MainActivity extends AppCompatActivity implements TrafficStreamInfo
                 dataManager.invalidate();
             }
         }).start();
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 
     @Override

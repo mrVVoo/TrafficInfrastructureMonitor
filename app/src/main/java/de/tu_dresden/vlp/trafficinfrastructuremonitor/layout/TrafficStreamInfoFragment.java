@@ -1,7 +1,6 @@
 package de.tu_dresden.vlp.trafficinfrastructuremonitor.layout;
 
 import android.app.Fragment;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,22 +14,16 @@ import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.Comment;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link TrafficStreamInfoFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link TrafficStreamInfoFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * Fragment class to manage the editing window of a {@link TrafficStream}.
+ *
+ * @author Markus Wutzler
  */
 public class TrafficStreamInfoFragment extends Fragment {
     public static final String TAG = TrafficStreamInfoFragment.class.getName();
     private TrafficStream myTrafficStream;
-    private OnFragmentInteractionListener mListener;
     private View fragmentRootView;
     private TextView trafficStreamIdLabel;
     private EditText commentField;
-    private SaveButtonClickListener saveButtonClickListener;
-    private CancelButtonClickListener cancelButtonClickListener;
     private DataManager dataManager;
     private Comment currentComment;
 
@@ -86,9 +79,6 @@ public class TrafficStreamInfoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        if (getActivity() instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) getActivity();
-        }
         if (getActivity() instanceof MainActivity) {
             dataManager = ((MainActivity) getActivity()).getDataManager();
         }
@@ -96,35 +86,14 @@ public class TrafficStreamInfoFragment extends Fragment {
         trafficStreamIdLabel = fragmentRootView.findViewById(R.id.tsiw_traffic_stream_id_label);
         trafficStreamIdLabel.setText(myTrafficStream.getId());
         commentField = fragmentRootView.findViewById(R.id.tsiw_comments);
-        saveButtonClickListener = new SaveButtonClickListener();
+        SaveButtonClickListener saveButtonClickListener = new SaveButtonClickListener();
         fragmentRootView.findViewById(R.id.tsiw_save_btn).setOnClickListener(saveButtonClickListener);
-        cancelButtonClickListener = new CancelButtonClickListener();
+        CancelButtonClickListener cancelButtonClickListener = new CancelButtonClickListener();
         fragmentRootView.findViewById(R.id.tsiw_cancel_btn).setOnClickListener(cancelButtonClickListener);
 
         updateUI();
 
         return fragmentRootView;
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 
     private class SaveButtonClickListener implements View.OnClickListener {
