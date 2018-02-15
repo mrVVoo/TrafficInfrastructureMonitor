@@ -13,19 +13,52 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The {@link DataManager} is responsible for managing both the {@link TrafficStream}s and the corresponding {@link Comment}s.
+ *
+ * @author Markus Wutzler
+ */
 public class DataManager {
 
+    /**
+     * target xml file name
+     */
     private static final String TRAFFIC_STREAMS_FILE_NAME = "traffic-streams.xml";
+    /**
+     * target file object
+     */
     private final File trafficStreamsFile;
+    /**
+     * Comment Database
+     *
+     * @see AppDatabase
+     * @see Room
+     */
     private final AppDatabase appDatabase;
+    /**
+     * in-memory list of {@link TrafficStream}s
+     */
     private List<TrafficStream> myTrafficStreams = new LinkedList<>();
+    /**
+     * set of {@link DataManagerListener}s which respond to changes in the data sets.
+     */
     private Set<DataManagerListener> listeners = new HashSet<>();
 
+    /**
+     * Initializes the data manager. Should actually be a Singleton.
+     *
+     * @param applicationContext required to retrieve storage
+     */
     public DataManager(Context applicationContext) {
         trafficStreamsFile = new File(applicationContext.getFilesDir(), DataManager.TRAFFIC_STREAMS_FILE_NAME);
         appDatabase = Room.databaseBuilder(applicationContext, AppDatabase.class, "tim-db").build();
     }
 
+    /**
+     * Returns the current list of {@link TrafficStream}s, which are loaded/parsed upon first request.
+     *
+     * @return List of {@link TrafficStream}s
+     */
     public List<TrafficStream> getTrafficStreams() {
         if (this.myTrafficStreams == null || this.myTrafficStreams.isEmpty()) {
             parseTrafficStreams();
@@ -33,6 +66,9 @@ public class DataManager {
         return myTrafficStreams;
     }
 
+    /**
+     * Private method to handle loading/parsing the {@link TrafficStream}s from the trafficStreamsFile.
+     */
     private void parseTrafficStreams() {
         if (myTrafficStreams == null) {
             myTrafficStreams = new LinkedList<>();
@@ -47,6 +83,9 @@ public class DataManager {
         }
     }
 
+    /**
+     * re-reads the {@link TrafficStream}s and notifies the listeners.
+     */
     public void invalidate() {
         myTrafficStreams.clear();
         parseTrafficStreams();
@@ -55,6 +94,14 @@ public class DataManager {
         }
     }
 
+    /**
+     * Reads the {@param file} and copies the content to the local target file.
+     * Additionally, the database is truncated and the list of traffic streams in invalidated.
+     *
+     * @param file original file
+     *
+     * @throws IOException if file doesn't exist.
+     */
     public void load(File file) throws IOException {
         InputStream in = new FileInputStream(file);
         try {
