@@ -15,7 +15,7 @@ import de.tu_dresden.vlp.trafficinfrastructuremonitor.model.TrafficStream;
 import de.tu_dresden.vlp.trafficinfrastructuremonitor.overlays.TrafficStreamOverlay;
 import org.osmdroid.api.IMapController;
 import org.osmdroid.tileprovider.cachemanager.CacheManager;
-import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.tileprovider.tilesource.XYTileSource;
 import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.CopyrightOverlay;
@@ -57,7 +57,10 @@ public class MapViewFragment extends Fragment implements LocationListener, DataM
         mapView = view.findViewById(R.id.mapView);
         mapView.setBuiltInZoomControls(true);
         mapView.setMultiTouchControls(true);
-        mapView.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE);
+        mapView.setTileSource(new XYTileSource("OSM-BW",1,18,256,".png",new String[]{
+                "http://a.tiles.wmflabs.org/bw-mapnik/",
+                "http://b.tiles.wmflabs.org/bw-mapnik/",
+                "http://c.tiles.wmflabs.org/bw-mapnik/"},"© OpenStreetMap contributors"));
 
         mapView.getOverlays().add(new CopyrightOverlay(getActivity()));
 
